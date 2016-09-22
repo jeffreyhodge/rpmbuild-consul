@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:		consul
-Version:	0.6.4
+Version:	0.7.0
 Release:	1%{dist}
 Summary:	A tool for service discovery
 Group:		Applications/Internet
