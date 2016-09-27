@@ -67,5 +67,8 @@ rm -rf %{buildroot}
 %{_localstatedir}/run/%{name}
 
 %changelog
+* Mon Sep 26 2016 Taylor kimball <taylor@linuxhq.org> - 0.7.0-1
+- Update to version 0.7.0
+
 * Tue May 03 2016 Taylor Kimball <taylor@linuxhq.org> - 0.6.4-1
 - Initial build.
