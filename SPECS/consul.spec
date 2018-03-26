@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:		consul
-Version:	0.7.0
+Version:	1.0.6
 Release:	1%{dist}
 Summary:	A tool for service discovery
 Group:		Applications/Internet
@@ -67,8 +67,11 @@ rm -rf %{buildroot}
 %{_localstatedir}/run/%{name}
 
 %changelog
-* Mon Sep 26 2016 Taylor kimball <taylor@linuxhq.org> - 0.7.0-1
+* Sun Mar 25 2018 Taylor Kimball <tkimball@linuxhq.org> - 1.0.6-1
+- Update to version 1.0.6
+
+* Mon Sep 26 2016 Taylor kimball <tkimball@linuxhq.org> - 0.7.0-1
 - Update to version 0.7.0
 
-* Tue May 03 2016 Taylor Kimball <taylor@linuxhq.org> - 0.6.4-1
+* Tue May 03 2016 Taylor Kimball <tkimball@linuxhq.org> - 0.6.4-1
 - Initial build.
