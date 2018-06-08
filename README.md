@@ -1,5 +1,8 @@
 # rpmbuild-consul
 
+[![Package Cloud](https://img.shields.io/badge/packagecloud-consul-blue.svg?style=flat)](https://packagecloud.io/linuxhq/consul)
+[![License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat)](COPYING)
+
 Create a consul RPM for RHEL/CentOS.
 
 ## Requirements
