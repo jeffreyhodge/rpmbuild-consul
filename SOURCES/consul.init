@@ -26,7 +26,7 @@ if [ -f /etc/sysconfig/consul ]; then
 fi
 
 consul_bin=${CONSUL_BIN-/usr/sbin/consul}
-consul_config_file=${CONSUL_CONFIG_FILE-/etc/consul/consul.json}
+consul_config_dir=${CONSUL_CONFIG_DIR-/etc/consul}
 consul_log_file=${CONSUL_LOG_FILE-/var/log/consul/consul.log}
 consul_pid_file=${CONSUL_PID_FILE-/var/run/consul/consul.pid}
 consul_user=${CONSUL_USER-consul}
@@ -39,7 +39,7 @@ start() {
   daemon \
     --pidfile=${consul_pid_file} \
     --user=${consul_user} \
-    "{ ${consul_bin} agent -server -config-file ${consul_config_file} ${CONSUL_OPTS} \
+    "{ ${consul_bin} agent -config-dir ${consul_config_dir} ${CONSUL_OPTS} \
                            >> ${consul_log_file} 2>&1 & }; echo \$! >| ${consul_pid_file}" 
   RETVAL=$?
   [ $RETVAL = 0 ] && success
@@ -50,6 +50,15 @@ start() {
 stop() {
   echo -n $"Stopping $prog: "
   killproc -p ${consul_pid_file}
+  RETVAL=$?
+  [ $RETVAL = 0 ] && success
+  [ $RETVAL != 0 ] && failure
+  echo
+}
+
+reload() {
+  echo -n $"Reloading $prog: "
+  ${consul_bin} reload
   RETVAL=$?
   [ $RETVAL = 0 ] && success
   [ $RETVAL != 0 ] && failure
@@ -68,8 +77,11 @@ case "$1" in
     stop
     start
     ;;
+  reload)
+    reload
+    ;;
   *)
-    echo $"Usage: $prog {start|stop|restart}"
+    echo $"Usage: $prog {start|stop|restart|reload}"
     RETVAL=2
 esac
 
