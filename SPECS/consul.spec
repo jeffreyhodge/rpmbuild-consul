@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 
 Name:		consul
-Version:	1.4.4
+Version:	1.6.1
 Release:	1%{dist}
 Summary:	A service mesh solution
 License:	Mozilla Public License 2.0
